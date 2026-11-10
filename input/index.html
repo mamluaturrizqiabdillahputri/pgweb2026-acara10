@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+<body>
+    <h2h>Form Input Data Menaraa Telekomunikasi</h2h>
+
+    <form action="input.php" onsubmit="return validateForm()"method="post">
+        <label for="jenis">Jenis Menara:</label><br>
+        <select id="jenis" name="jenis" required>
+            <option value="Macrocell">Macrocell</option>
+            <option value="Microcell">Microcell</option>
+            <option value="Combat">Combat</option>
+        </select><br><br>
+        <label for="tinggi">Tinggi (meter):</label><br>
+    <input type="number" id="tinggi" name="tinggi" placeholder="Contoh: 40" required><br><br>
+
+    <label for="kecamatan">Kecamatan:</label><br>
+    <input type="text" id="kecamatan" name="kecamatan" placeholder="Contoh: Ngemplak" required><br><br>
+
+    <label for="desa">Desa:</label><br>
+    <input type="text" id="desa" name="desa" placeholder="Contoh: Umbulmartani" required><br><br>
+
+    <label for="latitude">Latitude (Y):</label><br>
+    <input type="text" id="latitude" name="latitude" placeholder="Contoh: -7.67589" required><br><br>
+
+    <label for="longitude">Longitude (X):</label><br>
+    <input type="text" id="longitude" name="longitude" placeholder="Contoh: 110.41697" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+    <p id="informasi"></p>
+
+    <script>
+        function validateForm(){   
+
+            let tinggi = document.getElementById("tinggi").value;
+            let text = "";
+            if (isNaN(tinggi) || tinggi<1){
+                text = "Data tinggi menara harus angka dan tidak boleh bernilai negatif";
+
+                //stop the form submission
+                event.preventDefault();
+            }
+
+            document.getElementById("informasi").innerHTML = text;
+        }
+    </script>
+</body>
+</html>
